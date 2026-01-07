@@ -2,6 +2,6 @@
 
 This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
 
-You can access the current version [here](https://nextjs-foundations-approuter-hnl11ajiu.vercel.app/).
+You can access the current version [here](https://nextjs-foundations-approuter-e78nkprnm.vercel.app/dashboard).
 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
