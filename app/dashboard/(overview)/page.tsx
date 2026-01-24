@@ -13,7 +13,7 @@ import {
 // Setting revalidate = 0 effectively disables caching for this specific route.
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
 
-// export const revalidate = 0;
+export const revalidate = 0;
 
 export default async function Page() {
   const revenue = await fetchRevenue();
