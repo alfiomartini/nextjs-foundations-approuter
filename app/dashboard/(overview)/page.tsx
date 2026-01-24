@@ -1,15 +1,19 @@
-import RevenueChart from "../ui/dashboard/revenue-chart";
-import LatestInvoices from "../ui/dashboard/latest-invoices";
-import { Card } from "../ui/dashboard/cards";
-import { lusitana } from "../ui/fonts";
-import { fetchRevenue, fetchLatestInvoices, fetchCardData } from "../lib/data";
+import RevenueChart from "../../ui/dashboard/revenue-chart";
+import LatestInvoices from "../../ui/dashboard/latest-invoices";
+import { Card } from "../../ui/dashboard/cards";
+import { lusitana } from "../../ui/fonts";
+import {
+  fetchRevenue,
+  fetchLatestInvoices,
+  fetchCardData,
+} from "../../lib/data";
 
 // Ensure a layout or page is always dynamically rendered even
 // if no Dynamic APIs or uncached data fetches are discovered
 // Setting revalidate = 0 effectively disables caching for this specific route.
 // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
 
-export const revalidate = 0;
+// export const revalidate = 0;
 
 export default async function Page() {
   const revenue = await fetchRevenue();
