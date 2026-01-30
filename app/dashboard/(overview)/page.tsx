@@ -2,11 +2,9 @@ import RevenueChart from "../../ui/dashboard/revenue-chart";
 import LatestInvoices from "../../ui/dashboard/latest-invoices";
 import { Card } from "../../ui/dashboard/cards";
 import { lusitana } from "../../ui/fonts";
-import {
-  fetchRevenue,
-  fetchLatestInvoices,
-  fetchCardData,
-} from "../../lib/data";
+import { fetchLatestInvoices, fetchCardData } from "../../lib/data";
+import { Suspense } from "react";
+import { RevenueChartSkeleton } from "@/app/ui/skeletons";
 
 // Ensure a layout or page is always dynamically rendered even
 // if no Dynamic APIs or uncached data fetches are discovered
@@ -16,7 +14,6 @@ import {
 export const revalidate = 0;
 
 export default async function Page() {
-  const revenue = await fetchRevenue();
   const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfCustomers,
@@ -40,7 +37,9 @@ export default async function Page() {
         />
       </div>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8">
-        <RevenueChart revenue={revenue} />
+        <Suspense fallback={<RevenueChartSkeleton />}>
+          <RevenueChart />
+        </Suspense>
         <LatestInvoices latestInvoices={latestInvoices} />
       </div>
     </main>
